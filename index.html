@@ -7,145 +7,143 @@
     <title>Cricket Stream</title>
     <style>
         body {
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              background-color: #333;
-              color: #ffffff;
-              margin: 0;
-              padding: 0;
-              box-sizing: border-box;
-              text-align: center;
-              font-size: 18px;
-              line-height: 1.6;
-          }
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #333;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-align: center;
+            font-size: 12px;
+            line-height: .6;
+        }
 
-          header {
-              background-color: #222;
-              color: #ffffff;
-              text-align: center;
-              padding: 1em 0;
-              box-sizing: border-box;
-              font-size: 2em;
-              border-bottom: 2px solid #444;
-              margin-bottom: 20px;
-          }
+        header {
+            background-color: #222;
+            color: #ffffff;
+            text-align: center;
+            padding: 1em 0;
+            box-sizing: border-box;
+            font-size: 1.5em;
+            border-bottom: 2px solid #444;
+            margin-bottom: 1px; /* Reduced margin between heading and search bar */
+        }
 
-          header h1 {
-              margin: 0;
-              font-size: 1.5em;
-          }
+        header h1 {
+            margin: 0;
+        }
 
-          .container {
-              max-width: 1200px;
-              margin: 0 auto;
-              padding: 20px;
-              box-sizing: border-box;
-          }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
 
-          .site-grid {
-              display: grid;
-              grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-              gap: 10px;
-              margin-top: 20px;
-          }
+        .site-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
 
-          .site-card {
-              background-color: #444;
-              border: 1px solid #333;
-              border-radius: 8px;
-              overflow: hidden;
-              transition: transform 0.3s ease-in-out;
-              text-decoration: none;
-              color: #ffffff;
-              display: flex;
-              flex-direction: column;
-          }
+        .site-card {
+            background-color: #444;
+            border: 1px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+            text-decoration: none;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+        }
 
-          .site-card:hover {
-              transform: scale(1.05);
-          }
+        .site-card:hover {
+            transform: scale(1.05);
+        }
 
-          .site-card img {
-              width: 100%;
-              height: auto;
-              object-fit: cover;
-          }
+        .site-card img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
 
-          .site-info {
-              padding: 10px;
-              text-align: center;
-              flex-grow: 1;
-          }
+        .site-info {
+            padding: 10px;
+            text-align: center;
+            flex-grow: 1;
+        }
 
-          .site-info h2 {
-              margin: 0;
-              font-size: 1em; /* Adjust the font size for h2 */
-          }
+        .site-info h2 {
+            margin: 0;
+            font-size: 1em; /* Adjust the font size for h2 */
+        }
 
-          .site-link {
-              margin-top: 10px;
-              color: #ffffff;
-              text-decoration: none;
-              background-color: #3498db;
-              padding: 10px;
-              border-radius: 5px;
-              display: inline-block;
-              transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-          }
+        .site-link {
+            margin-top: 10px;
+            color: #ffffff;
+            text-decoration: none;
+            background-color: #3498db;
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+        }
 
-          .site-link:hover {
-              background-color: #2c3e50;
-              color: #ffffff;
-              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-          }
+        .site-link:hover {
+            background-color: #2c3e50;
+            color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
-          .announcement {
-              background-color: #444;
-              color: #ffffff;
-              padding: 15px;
-              margin: 20px 0;
-              border-radius: 8px;
-              box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-          }
+        .announcement {
+            background-color: #444;
+            color: #ffffff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
 
-          #search-bar {
-              margin-bottom: 20px;
-              text-align: center;
-          }
+        #search-bar {
+            margin-bottom: 10px;
+        }
 
-          #channel-search {
-              padding: 10px;
-              border: 1px solid #555;
-              border-radius: 5px;
-              width: 60%;
-              margin-right: 10px;
-              font-size: 16px;
-          }
+        #channel-search {
+            padding: 10px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            width: 30%;
+            margin-right: 3px;
+            font-size: 12px;
+        }
 
-          #channel-search:focus {
-              outline: none;
-              border-color: #3498db;
-          }
+        #channel-search:focus {
+            outline: none;
+            border-color: #3498db;
+        }
 
-          #search-btn {
-              padding: 10px;
-              background-color: #3498db;
-              color: #ffffff;
-              border: none;
-              border-radius: 5px;
-              cursor: pointer;
-              font-size: 16px;
-          }
+        #search-btn {
+            padding: 10px;
+            background-color: #3498db;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+        }
 
-          #search-btn:hover {
-              background-color: #2c3e50;
-          }
+        #search-btn:hover {
+            background-color: #2c3e50;
+        }
 
-          /* Media Query for Small Screens */
-          @media only screen and (max-width: 300px) {
-              .site-grid {
-                  grid-template-columns: repeat(2, 1fr);
-              }
-          }
+        /* Media Query for Small Screens */
+        @media only screen and (max-width: 300px) {
+            .site-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
     </style>
 </head>
 
@@ -155,18 +153,12 @@
     </header>
 
     <div class="container">
-
-      
-
         <div id="search-bar">
             <input type="text" id="channel-search" oninput="searchChannels()" placeholder="Enter channel name...">
             <button id="search-btn" onclick="searchChannels()">Search</button>
         </div>
 
         <div class="site-grid">
-
-         
-
 
           <a href="https://kratosrepo.github.io/cricket-live/embMPD?url=https://bpprod5linear.akamaized.net/bpk-tv/irdeto_com_Channel_250/output/manifest.mpd&key=06341bf3dd635e6ca5c71188d0210373&key2=1f69fd2356c8be897af33bdbbdd9c093" class="site-card" _self="_blank">
               <img src="https://mediaready.videoready.tv/tatasky-epg/image/fetch/f_auto,fl_lossy,q_auto,h_250,w_250/https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-8301-j7hc0820-v1/imageContent-8301-j7hc0820-m1.png" alt="Star Sports 1 HD">
@@ -1393,11 +1385,8 @@
               </div>
           </a>
 
-
             <!-- Add your site cards here -->
         </div>
-
-        
     </div>
 
     <script>
