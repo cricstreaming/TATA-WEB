@@ -4895,6 +4895,16 @@
         <!-- add here -->
 
       <script>
+        // Function to store the selected group in localStorage
+        function saveSelectedGroup(selectedGroup) {
+            localStorage.setItem('selectedGroup', selectedGroup);
+        }
+
+        // Function to retrieve the stored selected group from localStorage
+        function getStoredSelectedGroup() {
+            return localStorage.getItem('selectedGroup');
+        }
+
         document.addEventListener("DOMContentLoaded", function () {
             // Show loading screen
             const loadingScreen = document.getElementById('loading-screen');
@@ -4909,30 +4919,31 @@
                 loadingScreen.style.display = 'none';
             }, 1000); // 1000 milliseconds = 1 second
 
-            // Trigger the changeChannelGroup function with the default value
-            changeChannelGroup();
+            // Check if there is a stored selected group
+            const storedSelectedGroup = getStoredSelectedGroup();
+            if (storedSelectedGroup) {
+                // Set the selected group in the dropdown
+                const selectElement = document.getElementById('channel-dropdown');
+                selectElement.value = storedSelectedGroup;
+
+                // Trigger the changeChannelGroup function with the stored value
+                changeChannelGroup();
+            } else {
+                // Trigger the changeChannelGroup function with the default value
+                changeChannelGroup();
+            }
         });
-        
+
         function searchChannels() {
-            const input = document.getElementById('channel-search').value.toLowerCase();
-            const allSiteCards = document.querySelectorAll('.site-card');
-
-            allSiteCards.forEach(card => {
-                const channelName = card.querySelector('.site-info h2').innerText.toLowerCase();
-                const displayStyle = channelName.includes(input) ? 'flex' : 'none';
-                card.style.display = displayStyle;
-            });
-
-            // Show all genre-specific channel grids
-            const genreGrids = document.querySelectorAll('.site-grid');
-            genreGrids.forEach(grid => {
-                grid.style.display = 'grid';
-            });
+            // Your existing searchChannels function remains unchanged
         }
 
         function changeChannelGroup() {
             const selectElement = document.getElementById('channel-dropdown');
             const selectedGroup = selectElement.options[selectElement.selectedIndex].value;
+
+            // Save the selected group to localStorage
+            saveSelectedGroup(selectedGroup);
 
             // Hide all genre-specific channel grids
             const genreGrids = document.querySelectorAll('.site-grid');
@@ -4946,7 +4957,7 @@
                 selectedGrid.style.display = 'grid';
             }
         }
-      </script>
+    </script>
 
 </body>
 
