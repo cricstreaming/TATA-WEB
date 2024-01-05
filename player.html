@@ -9,16 +9,16 @@
   <script src="//content.jwplatform.com/libraries/SAHhwvZq.js"></script>
   <style>
     body {
-      margin: 0px
+      margin: 0px;
     }
 
     .jwplayer {
-      position: absolute !important
+      position: absolute !important;
     }
 
     .jwplayer.jw-flag-aspect-mode {
       min-height: 100%;
-      max-height: 100%
+      max-height: 100%;
     }
   </style>
 </head>
@@ -90,7 +90,7 @@
       // Get channel name from the URL
       var channelName = getParameterByName('channel');
       // Find the channel data in the JSON
-      var channelData = channels.find(channel => channel.name === channelName);
+      var channelData = channels.find(channel => decodeURIComponent(channel.name) === channelName);
 
       if (channelData) {
         // Set up the player with the channel data
