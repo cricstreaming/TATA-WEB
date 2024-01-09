@@ -58,17 +58,23 @@
       };
 
       if (channelData.url.endsWith('.mpd')) {
-        // Set up DRM for DASH with keys
+        // Set up DRM for DASH with keys if available
         playerSetup.type = 'dash';
-        playerSetup.drm = {
-          clearkey: {
-            keyId: channelData.license_key,
-            key: channelData.license_key2
-          }
-        };
+
+        // Check if Clear Key is available
+        if (channelData.license_key && channelData.license_key2) {
+          playerSetup.drm = {
+            clearkey: {
+              keyId: channelData.license_key,
+              key: channelData.license_key2
+            }
+          };
+        }
       } else if (channelData.url.endsWith('.m3u8')) {
-        // Set up DRM for HLS with keys
+        // Set up DRM for HLS with keys if available
         playerSetup.type = 'hls';
+
+        // Check if Clear Key is available
         if (channelData.license_key && channelData.license_key2) {
           playerSetup.drm = {
             clearkey: {
